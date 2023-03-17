@@ -9,11 +9,11 @@
 <body>
 
     <script>
-        let guess = prompt("무슨색인지 맞춰봅시다.(빨, 노, 파)");
+        let guess = prompt("무슨색인지 맞춰봅시다.(red, yellow, blue)");
         let answer = checkGuess(guess);
         alert(answer);
         function checkGuess(guess) {
-            let answers = ["빨", "노", "파"];
+            let answers = ["red", "yellow", "blue"];
             let index = Math.floor(Math.random()*answers.length);
             if(guess == answers[index]) {
                 return "맞췄습니다."
