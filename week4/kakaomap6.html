@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 위치</title>
+</head>
+<body>
+  <div id="location"></div>
+  <script>
+    // 시험
+    // window.onlad : html 내용이 전부 만들어지면 해당함수 호출 가능
+    // onload로 getMyLocation 호출
+    window.onload = getMyLocation;
+
+    function getMyLocation() {
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          displayLocation,
+          displayError
+        )
+      } else {
+        alert("이런, 지오로케이션이 제공되지 않네요.");
+      }
+    }
+    function displayLocation(position) {
+      // coords : 좌표를 가져오는 속성
+      // 위도 값 가져오기
+      var latitude = position.coords.latitude;
+      // 경도 값 가져오기
+      var longitude = position.coords.longitude;
+
+      var div = document.getElementById('location');
+      div.innerHTML = "당신의 위도 : " + latitude + "경도 : " + longitude 
+      + "에 있습니다.";
+    }
+
+
+    function displayError(error) {
+      var errorType = {
+        0 : "알려지지 않은 에러",
+        1 : "사용자가 권한 거부",
+        2 : "위치를 찾을 수 없음",
+        3 : "요청 응답 시간 초과",
+      };
+      var errorMessage = errorType[error.code];
+      if(error.code == 0 || error.code == 2) {
+        errorMessage = errorMessage + " " + error.errorMessage;
+      }
+      var div = document.getElementById("location");
+      div.innerHTML = errorMessage;
+    }
+  </script>
+</body>
+</html>
