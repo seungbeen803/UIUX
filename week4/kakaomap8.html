@@ -85,7 +85,24 @@ for (var i = 0; i < positions.length; i ++) {
       infowindow.close();
     };
   }
+  // 클릭해서 그 클릭한 마커 title 표시하기
+  kakao.maps.event.addListener(map, 'click', (mouseEvent) => {
+    // 마커를 생성합니다
+    let titleCont = prompt("마커이름을 입력해주세요.")
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: mouseEvent.latLng, // 마커를 표시할 위치
+        title : titleCont, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
 
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: `<div style="width: 150px; text-align: center;">${titleCont}</div>`
+    });
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+  });
 </script>
 </body>
 </html>
