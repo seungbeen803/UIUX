@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+  <title>Document</title>
+  <style>
+    .bgYellow {
+      background-color: lightgoldenrodyellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="mainDivId">
+    <div id="d1" class="divClass"></div>
+    <div id="d2" class="divClass"></div>
+    <div id="d3" class="divClass"></div>
+    <p></p>
+    <input type="text" value="yoon">
+    <input type="text" value="yoon1">
+  </div>
+  <script>
+    document.getElementById("d1").innerHTML = "멘트";
+    $("#d2").html("멘트2");
+    $(".divClass").html("멘트4");
+
+    document.querySelector("#d1").innerHTML = "안녕";
+    console.log($("#d1").parent());
+    console.log($("#d1").parents());
+
+    $("#d1").css("background-color", "lightpink")
+    $("#d2").addClass("bgYellow");
+    $("#d2").removeClass("bgYellow");
+    $("#d2").toggleClass("bgYellow");
+    // $("#d2").toggleClass("bgYellow");
+
+  </script>
+</body>
+</html>
