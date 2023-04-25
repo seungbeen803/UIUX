@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .imgCont {
+      text-align: center;
+    }
+    .imgCont img {
+      width: 200px;
+      padding: 3px;
+      position: relative;
+      cursor: pointer;
+      z-index: 999;
+      vertical-align: top;
+    }
+  </style>
+</head>
+<body>
+  <div class="imgCont">
+    <img src="./img/shownu.png" onclick="imgContCopy(this)">
+    <img src="./img/minhyuk.png" onclick="imgContCopy(this)">
+    <img src="./img/kihyun.png" onclick="imgContCopy(this)">
+    <img src="./img/hyungwon.png" onclick="imgContCopy(this)">
+    <img src="./img/joohoney.png" onclick="imgContCopy(this)">
+    <img src="./img/IM.png" onclick="imgContCopy(this)">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script>
+    function imgContCopy(imgCont_o) {
+        let pos = $(imgCont_o).offset(); // 클릭한 이미지 위치 알아내기
+        let rnd1 = Math.round(Math.random() * 900 - 850);
+        let rnd2 = Math.round(Math.random() * 900 - 450);
+
+        // 클릭한 이미지 기준으로 이동할 위치계산
+        let move_top = pos.top - rnd1;
+        let move_left = pos.left - rnd2;
+        console.log("DJKKD", move_top, move_left);
+
+        $(imgCont_o)
+            .clone() // 복제
+            .appendTo('.imgCont') // 복제한거 넣기
+            .css({top:pos.top, left:pos.left, position:'absolute'})
+            .animate({top:move_top, left:move_left}, 1000, function() {
+                let img = this;
+                setTimeout(function(){$(img).remove();}, 3000); // 3초 후에 삭제
+            });
+    }
+</script>
+</body>
+</html>
