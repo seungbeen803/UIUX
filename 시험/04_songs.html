@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <script>
+    const songs = [
+      "Ditto - NewJeans",
+      "OMG - NewJeans",
+      "I AM - IVE",
+      "LOVE - MONSTAX",
+      "Gambler - MONSTAX",
+      "One day - MONSTAX"
+    ];
+
+    function suggestSong() {
+      let index = Math.floor(Math.random() * songs.length);
+      let suggestion = songs[index];
+      return suggestion;
+    }
+
+    function searchForSong(word) {
+      word = word.toUpperCase();
+      let song;
+      for(let i = 0; i < songs.length; i++) {
+        song = songs[i].toUpperCase();
+        if(song.indexOf(word) >= 0) {
+          return song;
+        }
+      }
+      return "없는 곡입니다.";
+    }
+
+    let song = suggestSong();
+    document.write("<p>추천곡 : " + song);
+
+      let search_data = prompt("검색할 곡의 이름을 입력해주세요");
+      let matchedSong = searchForSong(search_data);
+      alert("검색 결과 : " + matchedSong);
+  </script>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>곡 제시 프로그램</title>
+</head>
+<body>
+  
+</body>
+</html>

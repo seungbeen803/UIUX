@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+</head>
+<body>
+  <script>
+    function stud(name, score, grade) {
+      this.name = name;
+      this.score = score;
+      this.grade = grade;
+      this.comment = function() {
+        alert(`${this.name} 학생의 점수는 ${this.score}이고 등급은 ${grade} 입니다.`);
+      }
+    }
+
+    let stud1 = new stud('손현우', 98, "A");
+    let stud2 = new stud('이민혁', 87, "B");
+    let stud3 = new stud('유기현', 99, "A");
+    let stud4 = new stud('채형원', 46, "F");
+    let stud5 = new stud('이주헌', 52, "D");
+    let stud6 = new stud('임창균', 100, "A");
+
+    stud1.comment();
+    stud2.comment();
+    stud3.comment();
+    stud4.comment();
+    stud5.comment();
+    stud6.comment();
+  </script>
+</body>
+</html>

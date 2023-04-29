@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math.random()</title>
+</head>
+<body>
+  <script>
+    let guess = prompt('무슨 색인지 맞춰봅시다. (res, yellow, blue, purple, green)');
+    let answer = checkGuess(guess);
+    alert(answer);
+
+    function checkGuess(guess) {
+      let answers = ["red", "yellow", "blue", "purple", "green"];
+      let index = Math.floor(Math.random() * answers.length);
+      if(guess == answers[index]) {
+        return "맞췄습니다."
+      } else {
+        return "아쉽게도 정답은 " + answers[index] + "입니다."
+      }
+    }
+  </script>
+</body>
+</html>
